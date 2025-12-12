@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
     <style>
-        /* Mobile Menu Toggle for Red Nav */
         .mobile-menu-red {
             display: none;
             position: fixed;
@@ -48,7 +47,6 @@
             color: #fcd34d;
         }
 
-        /* Hamburger Menu for Red Nav */
         .hamburger-red {
             display: none;
             cursor: pointer;
@@ -80,18 +78,15 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .hamburger-red {
                 display: block;
             }
 
-            /* Hide navigation items on mobile, show only flags and search */
             .nav-links-mobile-hide {
                 display: none !important;
             }
 
-            /* Mobile header adjustments */
             #navBlack {
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
@@ -117,12 +112,10 @@
                 height: auto;
             }
 
-            /* Hide red nav menu on mobile */
             #navRed>div:last-child {
                 display: none !important;
             }
 
-            /* Quote section */
             .quote-section {
                 flex-direction: column !important;
                 padding: 1rem !important;
@@ -140,12 +133,10 @@
                 text-align: center;
             }
 
-            /* News/Agenda/Video sections */
             .section-title {
                 font-size: 1.875rem !important;
             }
 
-            /* Berita image - smaller on mobile */
             .news-image {
                 max-width: 90% !important;
                 height: auto !important;
@@ -163,7 +154,6 @@
                 width: 100%;
             }
 
-            /* Footer links grid */
             .footer-links {
                 flex-direction: column !important;
                 padding: 1rem !important;
@@ -175,7 +165,6 @@
                 padding: 0 !important;
             }
 
-            /* Image links row */
             .image-links {
                 flex-wrap: wrap !important;
                 margin: 1rem !important;
@@ -192,7 +181,6 @@
                 height: auto !important;
             }
 
-            /* Agenda section */
             .agenda-content {
                 padding: 1rem !important;
             }
@@ -214,7 +202,6 @@
     <header>
         <!--header hitam-->
         <div class="bg-black flex px-25 z-40" id="navBlack">
-            <!-- Navigation links - hidden on mobile -->
             <div class="nav-links-mobile-hide">
                 <ul class="flex text-white font-semibold text-sm gap-5 py-3 mt-1">
                     <li><a href="https://si.upi.edu/" target="_blank" class="hover:text-yellow-300">Sistem Informasi</a>
@@ -289,7 +276,7 @@
                 </ul>
             </div>
 
-            <!-- Flags and social media - visible on all screens -->
+            
             <div>
                 <ul class="flex mx-5 gap-5 py-3 pl-6 mt-1">
                     <li><img src="Images/Inggris.png" class="w-9 h-6"></li>
@@ -305,7 +292,6 @@
                 </ul>
             </div>
 
-            <!-- Search icon - visible on all screens -->
             <div>
                 <div class="flex items-center gap-3">
                     <div class="border-l-2 border-white h-14 nav-links-mobile-hide"></div>
@@ -331,7 +317,6 @@
                         src="Images/Gedung Siliwangi.png" class="w-12 md:w-20 h-auto md:h-12 md:ml-9 mt-0 md:mt-2"></a>
             </div>
 
-            <!-- Hamburger menu for red nav - only visible on mobile -->
             <div class="hamburger-red" id="hamburgerRed" onclick="toggleRedMenu()">
                 <span></span>
                 <span></span>
@@ -351,7 +336,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Overlay for Red Nav -->
         <div class="mobile-menu-red" id="mobileMenuRed">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-white text-2xl font-bold">Menu</h2>
@@ -380,7 +364,6 @@
             mobileMenuRed.classList.toggle('active');
             hamburgerRed.classList.toggle('active');
 
-            // Prevent body scroll when menu is open
             if (mobileMenuRed.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {

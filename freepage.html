@@ -146,7 +146,6 @@
         function toggleRedMenu(){const m=document.getElementById('mobileMenuRed'),h=document.getElementById('hamburgerRed');m.classList.toggle('active');h.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';}function openPopup(s){const p=document.getElementById('popup'),i=document.getElementById('popupImg');i.src=s;p.classList.remove('hidden');p.classList.add('flex');document.body.style.overflow='hidden';}function closePopup(){const p=document.getElementById('popup');p.classList.add('hidden');p.classList.remove('flex');document.body.style.overflow='';}document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePopup();const m=document.getElementById('mobileMenuRed');if(m.classList.contains('active'))toggleRedMenu();}});window.addEventListener('scroll',function(){const nB=document.getElementById('navBlack'),nR=document.getElementById('navRed'),b=nB.getBoundingClientRect().bottom;if(b<=0){nR.classList.add('fixed','top-0','left-0','w-screen');nR.style.zIndex='40';}else{nR.classList.remove('fixed','top-0','left-0','w-screen');nR.style.zIndex='30';}});
     </script>
 
-    <!-- CONTENT -->
     <section class="max-w-6xl mx-auto px-4 py-10">
         <h2 class="text-4xl font-bold text-white drop-shadow mb-6 text-center">Universitas Pendidikan Indonesia</h2>
 
@@ -156,10 +155,8 @@
             terbaik di Indonesia."
         </p>
 
-        <!-- Project Gallery -->
         <div class="grid md:grid-cols-3 gap-6">
 
-            <!-- FOTO 1 -->
             <div class="bg-white/20 rounded-xl p-4 shadow-xl backdrop-blur hover:scale-[1.03] transition duration-300">
                 <img src="Images/UPI image.png" class="rounded-lg w-full h-40 object-cover cursor-pointer"
                     id="openGallery" />
@@ -167,7 +164,6 @@
                 <p class="text-sm text-white/80">Mengetahui UPI lebih dalam.</p>
             </div>
 
-            <!-- FOTO 2 -->
             <div class="bg-white/20 rounded-xl p-4 shadow-xl backdrop-blur hover:scale-[1.03] transition duration-300">
                 <img src="Images/Screenshot 2025-12-11 152648.png"
                     class="rounded-lg w-full h-40 object-cover cursor-pointer" id="openGallery2" />
@@ -175,7 +171,6 @@
                 <p class="text-sm text-white/80">Prestasi Universitas Pendidikan Indonesia.</p>
             </div>
 
-            <!-- FOTO 3 -->
             <div class="bg-white/20 rounded-xl p-4 shadow-xl backdrop-blur hover:scale-[1.03] transition duration-300">
                 <img src="Images/Screenshot 2025-12-11 153359.png"
                     class="rounded shadow-lg w-full h-40 object-cover cursor-pointer" onclick="openPopup(this.src)" />
@@ -186,10 +181,8 @@
         </div>
         </div>
 
-        <!-- Divider -->
         <div class="my-12 border-b border-white/30"></div>
 
-        <!-- Video -->
         <h2 class="text-3xl font-bold text-center mb-4">My Featured Video</h2>
         <div class="flex justify-center">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/9HqrZAeum0Y?autoplay=1&mute=1"
@@ -197,15 +190,10 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
-
-
-
         </div>
 
-        <!-- Divider -->
         <div class="my-12 border-b border-white/30"></div>
 
-        <!-- Hobby Section -->
         <h2 class="text-3xl font-bold text-center mb-4">My Hobbies</h2>
         <div class="grid md:grid-cols-3 gap-6 mt-6">
             <div
@@ -228,7 +216,6 @@
         </div>
     </section>
 
-    <!-- MINI MAP -->
     <section class="max-w-6xl mx-auto mt-16 px-6 pb-20">
         <div class="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-3xl shadow-2xl overflow-hidden">
             <div class="grid md:grid-cols-2">
@@ -280,7 +267,6 @@
         })();
     </script>
 
-    <!-- FOOTER -->
     <footer>
         <div
             class="flex flex-col md:flex-row bg-[#6c757d] px-6 md:px-20 py-10 md:py-16 items-start w-full gap-8 md:gap-0">
@@ -330,7 +316,6 @@
         </div>
     </footer>
 
-    <!-- POPUP 1 -->
     <div id="galleryModal"
         class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-center items-center z-[9999]">
         <div class="bg-white rounded-2xl p-6 max-w-3xl w-full shadow-2xl relative">
@@ -352,7 +337,6 @@
         </div>
     </div>
 
-    <!-- POPUP 2 -->
     <div id="galleryModal2"
         class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-center items-center z-[9999]">
         <div class="bg-white rounded-2xl p-6 max-w-3xl w-full shadow-2xl relative">
@@ -377,7 +361,6 @@
         </div>
     </div>
 
-    <!-- SCRIPT POPUP -->
     <script>
         const openGallery = document.getElementById("openGallery");
         const galleryModal = document.getElementById("galleryModal");
@@ -400,7 +383,6 @@
             }
         });
 
-        /* === POPUP FOTO 2 === */
         const openGallery2 = document.getElementById("openGallery2");
         const galleryModal2 = document.getElementById("galleryModal2");
         const closeGalleryBtn2 = document.getElementById("closeGallery2");
