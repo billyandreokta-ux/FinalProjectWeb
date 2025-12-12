@@ -8,6 +8,53 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         .mobile-menu-red{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background-color:rgba(220,38,38,.98);z-index:100;overflow-y:auto;padding:2rem}.mobile-menu-red.active{display:block}.mobile-menu-red ul{list-style:none;padding:0;margin:0}.mobile-menu-red ul li{border-bottom:1px solid rgba(255,255,255,.2)}.mobile-menu-red ul li a{display:block;padding:1rem 0;color:#fff;text-decoration:none;font-size:1.125rem;font-weight:600}.mobile-menu-red ul li a:hover{color:#fcd34d}.hamburger-red{display:none;cursor:pointer;padding:.5rem;position:absolute;right:1rem;top:50%;transform:translateY(-50%)}.hamburger-red span{display:block;width:25px;height:3px;background-color:#fff;margin:5px 0;transition:.3s}.hamburger-red.active span:nth-child(1){transform:rotate(-45deg) translate(-5px,6px)}.hamburger-red.active span:nth-child(2){opacity:0}.hamburger-red.active span:nth-child(3){transform:rotate(45deg) translate(-5px,-6px)}@media (max-width:768px){.hamburger-red{display:block}.nav-links-mobile-hide{display:none!important}#navBlack{padding-left:1rem!important;padding-right:1rem!important;justify-content:space-between}#navRed{padding-left:.5rem!important;padding-right:.5rem!important;flex-direction:column;position:relative}#navRed>div:first-child{margin-left:0!important;justify-content:center;width:100%;gap:.5rem!important}#navRed>div:first-child img{max-width:80px;height:auto}#navRed>div:last-child{display:none!important}}@media (min-width:769px){.hamburger-red{display:none}.mobile-menu-red{display:none!important}}
+        
+        /* Perbaikan responsivitas tambahan untuk mobile */
+        @media (max-width:640px){
+            /* Video responsive */
+            .video-container iframe{
+                width:100%;
+                height:auto;
+                aspect-ratio:16/9;
+            }
+            
+            /* Grid cards menjadi 1 kolom di mobile kecil */
+            .grid.md\:grid-cols-3{
+                grid-template-columns:1fr;
+            }
+            
+            /* Footer responsive */
+            footer .flex.flex-col.md\:flex-row{
+                flex-direction:column;
+            }
+            
+            footer .flex.flex-col.md\:flex-row > div{
+                width:100%;
+                padding-left:0;
+                padding-right:0;
+            }
+            
+            /* Map section responsive */
+            .grid.md\:grid-cols-2{
+                grid-template-columns:1fr;
+            }
+            
+            /* Adjust text sizes for mobile */
+            h2.text-4xl{
+                font-size:2rem;
+            }
+            
+            h2.text-3xl{
+                font-size:1.875rem;
+            }
+        }
+        
+        /* Tablet responsiveness */
+        @media (min-width:641px) and (max-width:768px){
+            .grid.md\:grid-cols-3{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
     </style>
 </head>
 
@@ -179,16 +226,15 @@
             </div>
 
         </div>
-        </div>
 
         <div class="my-12 border-b border-white/30"></div>
 
         <h2 class="text-3xl font-bold text-center mb-4">My Featured Video</h2>
-        <div class="flex justify-center">
+        <div class="flex justify-center video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/9HqrZAeum0Y?autoplay=1&mute=1"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+                allowfullscreen class="max-w-full">
             </iframe>
         </div>
 
@@ -228,7 +274,7 @@
                         Temukan lokasi kampus utama UPI melalui peta interaktif di bawah ini.
                     </p>
 
-                    <div class="flex gap-4 mt-4">
+                    <div class="flex flex-wrap gap-4 mt-4">
                         <a href="https://www.google.com/maps/place/Universitas+Pendidikan+Indonesia/@-6.8612936,107.5895017,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e6b943c2c5ff:0xee36226510a79e76!8m2!3d-6.8612989!4d107.592082!16zL20vMDN0bV96?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
                             target="_blank"
                             class="bg-white text-red-700 px-5 py-3 rounded-xl font-bold shadow hover:bg-red-100 transition duration-300">
@@ -261,7 +307,11 @@
 
             toggle.addEventListener('click', () => {
                 expanded = !expanded;
-                map.style.height = expanded ? '600px' : '100%';
+                if(window.innerWidth <= 768) {
+                    map.parentElement.style.height = expanded ? '600px' : '320px';
+                } else {
+                    map.style.height = expanded ? '600px' : '100%';
+                }
                 toggle.textContent = expanded ? 'Kecilkan Map' : 'Perbesar Map';
             });
         })();
@@ -317,10 +367,10 @@
     </footer>
 
     <div id="galleryModal"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-center items-center z-[9999]">
-        <div class="bg-white rounded-2xl p-6 max-w-3xl w-full shadow-2xl relative">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-center items-center z-[9999] p-4">
+        <div class="bg-white rounded-2xl p-6 max-w-3xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button id="closeGallery"
-                class="absolute top-3 right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl">×</button>
+                class="absolute top-3 right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl z-10">×</button>
 
             <h2 class="text-2xl font-bold text-red-600 mb-4 text-center">Gallery UPI</h2>
 
@@ -338,10 +388,10 @@
     </div>
 
     <div id="galleryModal2"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-center items-center z-[9999]">
-        <div class="bg-white rounded-2xl p-6 max-w-3xl w-full shadow-2xl relative">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-center items-center z-[9999] p-4">
+        <div class="bg-white rounded-2xl p-6 max-w-3xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button id="closeGallery2"
-                class="absolute top-3 right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl">×</button>
+                class="absolute top-3 right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl z-10">×</button>
 
             <h2 class="text-2xl font-bold text-red-600 mb-4 text-center">Portfolio Gallery</h2>
 
