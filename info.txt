@@ -1,2 +1,2 @@
 link github = https://github.com/billyandreokta-ux/FinalProjectWeb
-link website = 
+link website = https://www.billy.my.id/index.html
